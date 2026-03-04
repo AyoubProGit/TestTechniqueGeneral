@@ -5,11 +5,11 @@
 //  Created by Cindy Bajoni on 09/12/2025.
 //
 
-import Foundation
+import Observation
 import SwiftUI
 
-
-struct Student: Identifiable {
+@Observable
+class Student: Identifiable {
     var id = UUID()
     var name: String
     var house: House
@@ -18,6 +18,18 @@ struct Student: Identifiable {
     var picture: String
     var description: String
     var patronus: String?
+    
+    init(id: UUID = UUID(), name: String, house: House, year: Int, isPrefect: Bool, picture: String, description: String, patronus: String? = nil) {
+        self.id = id
+        self.name = name
+        self.house = house
+        self.year = year
+        self.isPrefect = isPrefect
+        self.picture = picture
+        self.description = description
+        self.patronus = patronus
+    }
+    
     
     func getHouseColor(isDark: Bool) -> Color {
         switch house {
